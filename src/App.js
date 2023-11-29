@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import {Landing,CountryPreview} from "./Pages";
+import { AppProvider } from "./context/appContext";
+import { Route,BrowserRouter as Router,Routes } from "react-router-dom";
+function App() { 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <Router>
+        <Routes> 
+          <Route  path="/" element={<Landing/>}/>
+          <Route  path="/Country_Preview" element={<CountryPreview/>}/>
+        </Routes>
+      </Router>
+    </AppProvider>
   );
 }
 
